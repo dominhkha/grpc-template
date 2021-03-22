@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package backend.v1;
+option go_package="github.com/dominhkha/grpc-template/rpc/backend/v1;backend_rpc";
+
+import "google/api/annotations.proto";
+
+
+service HealthService {
+
+  rpc CheckHealth (CheckHealthRequest) returns (CheckHealthResponse) {
+    option (google.api.http) = {
+      get: "/api/hello"
+    };
+  }
+}
+
+message CheckHealthRequest {
+  string request = 1;
+}
+message CheckHealthResponse {
+  string response = 1;
+}
